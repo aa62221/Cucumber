@@ -46,7 +46,8 @@
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-support</artifactId>
+      <artifactId>selenium-support</artifactId>  
+
       <version>${selenium.version}</version>
     </dependency>
 
@@ -108,6 +109,7 @@
               <namingScheme>simple</namingScheme>
               <namingPattern>Parallel{c}IT</namingPattern>
               <plugin>pretty, html:target/cucumber-parallel-report, com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:</plugin>
+              <cucumberVersion>7.18.1</cucumberVersion>
             </configuration>
           </execution>
         </executions>

@@ -53,7 +53,7 @@ public class TestHooks {
         } catch (Exception ignored) {}
       }
       driver.quit();
-      DRIVER.remove();
+      DRIVER.remove();  //--This is used to ensure the memory is cleaned up after the test run
     }
   }
 }
