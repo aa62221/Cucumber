@@ -1,13 +1,16 @@
 package com.learnautomation.hooks;
 
+import java.net.URL;
 import java.time.Duration;
-import Base.Base;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import Base.Base;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -21,7 +24,7 @@ public class TestHooks extends Base{
   public WebDriver getDriver() {
     return DRIVER.get();
   }
-
+  
   @Before
   public void setUp() {
     synchronized (DRIVER_LOCK) {
@@ -36,6 +39,41 @@ public class TestHooks extends Base{
       DRIVER.set(driver);
     }
   }
+  
+//
+//  @Before
+//  public void setUp() {
+//      synchronized (DRIVER_LOCK) {
+//          if (DRIVER.get() != null) return;
+//
+//          String executionType = System.getProperty("execution", "local"); // default local
+//          WebDriver driver;
+//
+//          try {
+//              if (executionType.equalsIgnoreCase("grid")) {
+//                  ChromeOptions options = new ChromeOptions();
+//                  options.addArguments("--remote-allow-origins=*");
+//                  String gridUrl = System.getProperty("gridUrl", "http://localhost:4444/wd/hub");
+//
+//                  driver = new RemoteWebDriver(new URL(gridUrl), options);
+//              } else {
+//                  WebDriverManager.chromedriver().setup();
+//                  ChromeOptions options = new ChromeOptions();
+//                  driver = new ChromeDriver(options);
+//              }
+//
+//              driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//              driver.manage().window().maximize();
+//              DRIVER.set(driver);
+//
+//          } catch (Exception e) {
+//              throw new RuntimeException("Failed to start WebDriver", e);
+//          }
+//      }
+//  }
+//  Local run: mvn clean test
+//  Grid run: mvn clean test -Dexecution=grid -DgridUrl=http://localhost:4444/wd/hub
+
 
   @After
   public void tearDown(Scenario scenario) {
