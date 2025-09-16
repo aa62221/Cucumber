@@ -10,5 +10,6 @@ Feature: Login
    Examples:
       | username  | password  |
       | 9004999581| Amazon.in |
+      | akshayathale.m09@gmail.com| Amazon.in |
    
 

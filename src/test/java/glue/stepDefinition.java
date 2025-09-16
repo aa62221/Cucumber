@@ -11,9 +11,9 @@ import io.cucumber.java.en.When;
 
 public class stepDefinition {
 	
-	WebDriver driver;
-	HomePage home;
-	TestHooks th=new TestHooks();
+	 WebDriver driver;
+	 HomePage home;
+	 TestHooks th=new TestHooks();
 	@Given("I am on the home page")
 	public void i_am_on_the_home_page() {
 	    // Write code here that turns the phrase above into concrete actions
