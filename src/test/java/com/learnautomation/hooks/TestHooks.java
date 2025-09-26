@@ -40,6 +40,9 @@ public class TestHooks extends Base{
     }
   }
   
+  // Add Threadlocal<ScenarioContext> if you want to share data between steps
+ //  Shared objects like WebDriver, API responses, or user details can be injected.
+  
 //
 //  @Before
 //  public void setUp() {
